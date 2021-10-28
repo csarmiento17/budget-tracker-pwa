@@ -18,8 +18,7 @@ request.onsuccess = function (event) {
 
   // check if app is online, if yes run uploadPizza() function to send all local db data to api
   if (navigator.onLine) {
-    // we haven't created this yet, but we will soon, so let's comment it out for now
-    // uploadPizza();
+    uploadBudget;
   }
 };
 
@@ -55,7 +54,7 @@ function uploadBudget() {
   getAll.onsuccess = function () {
     // if there was data in indexedDb's store, let's send it to the api server
     if (getAll.result.length > 0) {
-      fetch("https://damp-anchorage-00273.herokuapp.com/api/transaction", {
+      fetch("/api/transaction", {
         method: "POST",
         body: JSON.stringify(getAll.result),
         headers: {
